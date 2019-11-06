@@ -14,6 +14,11 @@ It's simply a centralized place in our front end where we can store and read dat
 The store their tools are a browser extension that is going to allow us to see the content of our in-memory database easily using the Chrome dev tools.
 - Add Chrome extension Redux DevTools from remotedevio.
 
+### Modular structure of the application
+Scope: Smaller size of the initial application bundle (The Initial boilerplate javascript loaded at startup).
+- AuthModule is a EAGER Loading module
+- CoursesModule is a LAZY Loading module
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).

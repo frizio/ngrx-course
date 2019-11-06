@@ -34,7 +34,7 @@ const routes: Routes = [
     redirectTo: '/'
   }
 ];
-
+// CoursesModule is a LAZY Loading module
 
 
 @NgModule({
@@ -52,7 +52,7 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatToolbarModule,
-    AuthModule.forRoot(),
+    AuthModule.forRoot(), // AuthModule is a EAGER Loading module
     StoreModule.forRoot(
       reducers,
       { metaReducers }
