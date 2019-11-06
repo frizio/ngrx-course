@@ -8,6 +8,7 @@ import {AuthService} from '../auth.service';
 import {tap} from 'rxjs/operators';
 import {noop} from 'rxjs';
 import {Router} from '@angular/router';
+import { login } from '../auth.actions';
 
 @Component({
   selector: 'login',
@@ -46,12 +47,7 @@ export class LoginComponent implements OnInit {
             console.log(user);
             // Store data
             this.store.dispatch(
-              {
-                type: 'Login Action',
-                payload: {
-                  userProfile: user
-                }
-              }
+              login( {user} )
             );
             // Navigation to the course page
             this.router.navigateByUrl('/courses');
