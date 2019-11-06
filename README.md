@@ -23,6 +23,8 @@ Scope: Smaller size of the initial application bundle (The Initial boilerplate j
 - Inject the Store service;
 - Modify the data inside the store: -> Create action and Dispatch it (instead of CRU API)
 - Read the data inside the store: -> Subscribe
+
+### Actions
 An action is a plain javascript object that we send to the store in order to trigger some modification of the store state. It has 'type' + 'payload'.
 There are multiple types of actions an action, the two most typical types of actions are: 
 - a command that we send to the store. We explicitly tell the store to perform a certain operation;
@@ -31,6 +33,16 @@ In any case dispatching an action it's the only way of modifying the stored stat
 In pratice,  dispatching of an action itself does not affect the store status. So an action is simply a plain javascript payload either a command or an event that informs the store that something has occurred externally but by itself inaction is not going to directly modify the state. In order to modify the store State and save here the user profile under the off property. We need to tell the store how to handle the action (the reducer).
 - Grouping Action together 
 It's very important that we don't reuse multiple actions in different parts of the application. It's important instead to create different actions for different screens and components in the application
+
+### Reducer
+An action is a simply a plain javascript payload that informing the store that typically something has happened at the level of the component and we have sent it to the store by calling the dispatched method.
+Now we need to define what should the store do in response to the action. So for that we are going to need a new function which is called a reducer.
+This function does not modify the state of the store directly. Instead it calculates a new version of the state based on the previous state and the action that just got dispatched. It's a function that we need to pass to the store so that the store knows how to react to a given action.
+
+### Conclusion
+So to summarize the store it's like an in-memory database that contains data that is going to get shared by multiple components of the application. Each component does not modify the state directly instead of its component that wants to modify the ata will dispatch an action. 
+An action is just a plain javascript payload containing some data and a type. The type tells to the store what to do with the action. 
+Depending on the type the store is going to call a reducer function. The reducer function it's a plain javascript function that calculates a new version of the state.
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 

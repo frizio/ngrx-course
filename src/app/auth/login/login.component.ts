@@ -1,4 +1,4 @@
-import { AppState } from './../reducers/index';
+import { AuthState } from './../reducers/index';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       private fb: FormBuilder,
       private auth: AuthService,
       private router: Router,
-      private store: Store<AppState>
+      private store: Store<AuthState>
       ) {
 
       this.form = fb.group({
@@ -47,9 +47,9 @@ export class LoginComponent implements OnInit {
           user => {
             console.log(user);
             // Store data
-            this.store.dispatch(
-              login( {user} )
-            );
+            const newLoginAction = login( {user} );
+            console.log('New login action:', newLoginAction);
+            this.store.dispatch(newLoginAction);
             // Navigation to the course page
             this.router.navigateByUrl('/courses');
           }
