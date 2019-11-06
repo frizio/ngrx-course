@@ -29,6 +29,8 @@ There are multiple types of actions an action, the two most typical types of act
 - an event reporting something that has happened at the level of the component.
 In any case dispatching an action it's the only way of modifying the stored state.
 In pratice,  dispatching of an action itself does not affect the store status. So an action is simply a plain javascript payload either a command or an event that informs the store that something has occurred externally but by itself inaction is not going to directly modify the state. In order to modify the store State and save here the user profile under the off property. We need to tell the store how to handle the action (the reducer).
+- Grouping Action together 
+It's very important that we don't reuse multiple actions in different parts of the application. It's important instead to create different actions for different screens and components in the application
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 
