@@ -6,12 +6,14 @@ So in summary what we need in order to implement all these features is a state m
 - It's going to allow us to have a much improved user experience with minimal loading indicators and having the UI immediately reflect the data modifications without having to call again the server.
 So when compared to a traditional application made without any state management this is really a next generation application that we are talking about with a much improved user experience and performance.  We're going to learn how to use NgRX in order to implement all those features in our application. NgRx is based on the Store architecture, so let's quickly cover it and then let's get started adding NgRx to our application and adding all this statement management features one by one.
 
+## ACTIONS and REDUCERS
+
 ### Add ngrx-store
 Notice that we often refer to the store as being an in memory database but it's not an actual database in the sense that there are no transactions or a query language etc. 
 It's simply a centralized place in our front end where we can store and read data from in order to prove that that is the case.
 
-### Add ngrx-store
-The store their tools are a browser extension that is going to allow us to see the content of our in-memory database easily using the Chrome dev tools.
+### Add ngrx-store-devtools
+The store-devtools their tools are a browser extension that is going to allow us to see the content of our in-memory database easily using the Chrome dev tools.
 - Add Chrome extension Redux DevTools from remotedevio.
 
 ### Modular structure of the application
@@ -43,6 +45,8 @@ This function does not modify the state of the store directly. Instead it calcul
 So to summarize the store it's like an in-memory database that contains data that is going to get shared by multiple components of the application. Each component does not modify the state directly instead of its component that wants to modify the ata will dispatch an action. 
 An action is just a plain javascript payload containing some data and a type. The type tells to the store what to do with the action. 
 Depending on the type the store is going to call a reducer function. The reducer function it's a plain javascript function that calculates a new version of the state.
+
+## SELECTORS and EFFECTS
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 
