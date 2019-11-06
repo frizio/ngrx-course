@@ -10,6 +10,10 @@ So when compared to a traditional application made without any state management 
 Notice that we often refer to the store as being an in memory database but it's not an actual database in the sense that there are no transactions or a query language etc. 
 It's simply a centralized place in our front end where we can store and read data from in order to prove that that is the case.
 
+### Add ngrx-store
+The store their tools are a browser extension that is going to allow us to see the content of our in-memory database easily using the Chrome dev tools.
+- Add Chrome extension Redux DevTools from remotedevio.
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).

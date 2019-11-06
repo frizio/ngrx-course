@@ -56,6 +56,10 @@ const routes: Routes = [
     StoreModule.forRoot(
       reducers,
       { metaReducers }
+    ),
+    StoreDevtoolsModule.instrument(
+      { maxAge: 25,
+        logOnly: environment.production }
     )
   ],
   bootstrap: [AppComponent]
