@@ -34,7 +34,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    console.log('Call login()');
+    const val = this.form.value;
+    this.auth.login(val.email, val.password)
+      .pipe(
+        tap( // Side effect over the stream
+          user => {
+            console.log(user);
+            // Store data
+            // TODO
+            // Navigation to the course page
+            this.router.navigateByUrl('/courses');
+          }
+        )
+      )
+      .subscribe(
+        noop,
+        (err) => {
+          console.log(err);
+          alert('Login failed');
+        }
+      );
   }
 
 }
