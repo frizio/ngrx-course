@@ -1,3 +1,10 @@
+# Frizio Development (branch master-frizio)
+
+So in summary what we need in order to implement all these features is a state management solution and that's exactly what NgRX is.
+- It's an angular specific state management solution that will allow us to create the client's site database with our data and it will allow us to minimize the number of HTTP requests done to the server.
+- It will allow us to easily have different parts of our view reflect new versions of the data.
+- It's going to allow us to have a much improved user experience with minimal loading indicators and having the UI immediately reflect the data modifications without having to call again the server.
+So when compared to a traditional application made without any state management this is really a next generation application that we are talking about with a much improved user experience and performance.  We're going to learn how to use NgRX in order to implement all those features in our application. NgRx is based on the Store architecture, so let's quickly cover it and then let's get started adding NgRx to our application and adding all this statement management features one by one.
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 
