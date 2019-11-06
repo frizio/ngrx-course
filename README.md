@@ -19,6 +19,16 @@ Scope: Smaller size of the initial application bundle (The Initial boilerplate j
 - AuthModule is a EAGER Loading module
 - CoursesModule is a LAZY Loading module
 
+### Store Service API
+- Inject the Store service;
+- Modify the data inside the store: -> Create action and Dispatch it (instead of CRU API)
+- Read the data inside the store: -> Subscribe
+An action is a plain javascript object that we send to the store in order to trigger some modification of the store state. It has 'type' + 'payload'.
+There are multiple types of actions an action, the two most typical types of actions are: 
+- a command that we send to the store. We explicitly tell the store to perform a certain operation;
+- an event reporting something that has happened at the level of the component.
+In any case dispatching an action it's the only way of modifying the stored state.
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).
