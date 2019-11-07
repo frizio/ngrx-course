@@ -1,4 +1,4 @@
-import { logout } from './auth/auth.actions';
+import { logout, login } from './auth/auth.actions';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selector';
 import { AppState } from './reducers/index';
 import {Component, OnInit} from '@angular/core';
@@ -28,6 +28,11 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+
+      const userProfile = localStorage.getItem('user');
+      if (userProfile) {
+        this.store.dispatch(login({user: JSON.parse(userProfile)}));
+      }
 
       this.router.events.subscribe(event  => {
         switch (true) {
