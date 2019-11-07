@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
@@ -22,9 +23,25 @@ export class AuthEffects {
     { dispatch: false }
   );
 
+  logout$ = createEffect(
+    () =>
+     this.actions$
+        .pipe(
+          ofType(AuthActions.logout),
+          tap(
+            action => {
+              localStorage.removeItem('user');
+              this.router.navigateByUrl('/login');
+            }
+          )
+        ),
+    { dispatch: false }
+  );
+
   constructor(
     // Use to notify whenever action get triggered
-    private actions$: Actions
+    private actions$: Actions,
+    private router: Router
   ) {
 
   }
