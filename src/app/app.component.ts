@@ -1,6 +1,7 @@
+import { AppState } from './reducers/index';
 import {Component, OnInit} from '@angular/core';
-import {select, Store} from "@ngrx/store";
-import {Observable} from "rxjs";
+import {select, Store, State} from '@ngrx/store';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 
@@ -13,7 +14,14 @@ export class AppComponent implements OnInit {
 
     loading = true;
 
-    constructor(private router: Router) {
+    isLoggedIn$: Observable<boolean>;
+
+    isLoggedOut$: Observable<boolean>;
+
+    constructor(
+      private router: Router,
+      private store: State<AppState>
+    ) {
 
     }
 
@@ -38,10 +46,28 @@ export class AppComponent implements OnInit {
         }
       });
 
+      /*
+      this.store.subscribe(
+        state => {
+          console.log('Store value', state);
+        }
+      );
+      */
+
+      this.isLoggedIn$ = this.store
+        .pipe( // Apply here operators
+          map(state => !!state.auth.user )
+        );
+
+      this.isLoggedOut$ = this.store
+        .pipe( // Apply here operators
+          map(state => !state.auth.user )
+        );
+
     }
 
     logout() {
-
+      console.log('Call logout()');
     }
 
 }
