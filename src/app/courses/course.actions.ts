@@ -1,3 +1,4 @@
+import { Course } from './model/course';
 import { createAction, props } from '@ngrx/store';
 
 // Fetch all courses from the backend: this is more a COMMAND than an event
