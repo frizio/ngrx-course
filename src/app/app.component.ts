@@ -1,3 +1,4 @@
+import { isLoggedIn, isLoggedOut } from './auth/auth.selector';
 import { AppState } from './reducers/index';
 import {Component, OnInit} from '@angular/core';
 import {select, Store, State} from '@ngrx/store';
@@ -46,22 +47,14 @@ export class AppComponent implements OnInit {
         }
       });
 
-      /*
-      this.store.subscribe(
-        state => {
-          console.log('Store value', state);
-        }
-      );
-      */
-
       this.isLoggedIn$ = this.store
         .pipe( // Apply here operators
-          map(state => !!state.auth.user )
+          select(isLoggedIn)
         );
 
       this.isLoggedOut$ = this.store
         .pipe( // Apply here operators
-          map(state => !state.auth.user )
+          map(isLoggedOut)
         );
 
     }

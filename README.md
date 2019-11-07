@@ -48,6 +48,11 @@ Depending on the type the store is going to call a reducer function. The reducer
 
 ## SELECTORS and EFFECTS
 
+### Selector
+So we these we have defined here our first selector. This is a mapping function that using the createselector utility has memory. So as long as our input state object does not change the output is not going to be recalculated.
+These type of function is known in functional programming terms as a memorized function, meaning that it keeps memory of previous executions and only executes itself if the inputs of the function have not been calculated before after each new execution of the function the memorized function is going to keep in the memory cache specific to the function the results of each calculation.
+So in summary it's a mapping function with memory 
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).
