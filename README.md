@@ -76,6 +76,13 @@ In redudcer, instead of creating new object and return it, it's possibile (but s
 ### Metareducer
 A Metareducer is a reducer of function. Just like any other it follows the same concepts such as it takes the current state and action and produces a new version of a state. But the difference is that a meta reducer is going to be processed before the normal reduced certs are invoked. So that's the main difference.
 
+## Entity Data and library
+
+### NgRx Feature Design - Defining Actions First
+Action of the functionality: So to summarize our courses resolver it is going to emit this action which is going to trigger this effect called the back end and dispatch this new action that will save the courses data in the store.
+
+So let's now start implementing our functionality in a logical way. We are going into our courses resolver that is going to trigger the loading of actions from the back end. We are then going to implement our effect that performance the fetch from the back end. We're going to dispatch this action implement its reducer logic. And finally we are going to write a series of new selectors and we're going to grab our data in our home component from the store instead of calling here the http service.
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).
