@@ -70,8 +70,11 @@ A side effect is something that is done in response to a given action. So the ac
 
 ### Router Store Time-Travelling debbugger
 
-### 
+### Runtime-CHecks
 In redudcer, instead of creating new object and return it, it's possibile (but strongly not suggested) mutate directi the input state object. This is problematic it's because this would brake on push change detection in case that we would be using it in our application. So unpolished change detection is a spatial angular shames detection mode that we are going to cover at the end of this course that allows our application to get the view updated in a more performance way assuming that the data does not get mutated and that we push each time new versions of the data to the view.So if we mutate directly the data inside the store we would break that guarantee and our application
+
+### Metareducer
+A Metareducer is a reducer of function. Just like any other it follows the same concepts such as it takes the current state and action and produces a new version of a state. But the difference is that a meta reducer is going to be processed before the normal reduced certs are invoked. So that's the main difference.
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 

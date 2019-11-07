@@ -26,7 +26,6 @@ export const authReducer = createReducer(
   on(
     AuthActions.login,
     (state, action) => {
-      console.log('Calling login reducer');
       // Problematic with Push change detection
       // state.user = action.user;
       // return state;
@@ -36,7 +35,6 @@ export const authReducer = createReducer(
   on(
     AuthActions.logout,
     (state, action) => {
-      console.log('Calling login reducer');
       return { user: undefined };
     }
   )
