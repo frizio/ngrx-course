@@ -1,7 +1,8 @@
+import { logout } from './auth/auth.actions';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selector';
 import { AppState } from './reducers/index';
 import {Component, OnInit} from '@angular/core';
-import {select, Store, State} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
 
     constructor(
       private router: Router,
-      private store: State<AppState>
+      private store: Store<AppState>
     ) {
 
     }
