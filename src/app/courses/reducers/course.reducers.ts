@@ -1,12 +1,6 @@
 import { Course } from './../model/course';
+import { EntityState } from '@ngrx/entity';
 
-export interface CoursesState {
-
-  // Natural store
-  // courses: Course[]
-
-  // Entity format
-  entities: { [key: number]: Course }; // Map
-  ids: number[];  // Define the order
+export interface CoursesState extends EntityState<Course> {
 
 }
