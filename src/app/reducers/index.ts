@@ -16,6 +16,16 @@ export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer
 };
 
+export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state, action) => {
+    console.log('Logging metareducer');
+    console.log('State befora', state);
+    console.log('Action', action);
+    console.log('Continue the reducer chain...');
+    return reducer(state, action);
+  };
+}
+
 
 export const metaReducers: MetaReducer<AppState>[] =
-  !environment.production ? [] : [];
+  !environment.production ? [logger] : [];
