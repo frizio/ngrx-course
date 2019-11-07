@@ -23,7 +23,8 @@ import { authReducer } from './reducers/index';
         StoreModule.forFeature(
           'auth',
           authReducer
-        )
+        ),
+        EffectsModule.forFeature([])
     ],
     declarations: [LoginComponent],
     exports: [LoginComponent]
