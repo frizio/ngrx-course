@@ -53,6 +53,13 @@ So we these we have defined here our first selector. This is a mapping function 
 These type of function is known in functional programming terms as a memorized function, meaning that it keeps memory of previous executions and only executes itself if the inputs of the function have not been calculated before after each new execution of the function the memorized function is going to keep in the memory cache specific to the function the results of each calculation.
 So in summary it's a mapping function with memory 
 
+### Feature Selector
+A selector is simply a plain mapping function with memory. We use these mapping functions to query our Auth State and get back the values that the view needs to display later to the user in order to find that is logged in selected.
+The authentication state corresponds to the authentication feature module. So this is a module that is part of our application that is included in the root module that is known as a feature module which typically contains a series of screens Components Services that are related to one particular functionality of our application. In this case the authentication functionality.
+
+### Review
+So at this point in the course we have introduced some of the key concepts of our NgRX. We know how to interact with the store by creating and dispatching actions. We know how to change the state contained inside the store by implementing reduce service. And we know how to query the data in the store using selectors.
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).
