@@ -66,6 +66,12 @@ A side effect is something that is done in response to a given action. So the ac
 - Example we would like to be able to fetch these list of courses from a back in and store them in the store. And whenever we edit one of the courses using here the edit button and lets say we change the title of the course we would like to press save and have those changes immediately reflected in the UI meaning that the store should be immediately updated with the new information without blocking the user. However in the background as a side effect of the modification that we just did in the store of data such as changing the title of the course we would like the store to also save those changes to the backend. Well that extra backend request that these synchronizing the data that we have in the store with a database is a good example of a side effect.
 - We would like our authentication state to survive browser refresh. Actually authentication state is going to be deleted. Implement this feature wsing the Local Storage.
 
+## Development Tools
+
+### Router Store Time-Travelling debbugger
+
+### 
+In redudcer, instead of creating new object and return it, it's possibile (but strongly not suggested) mutate directi the input state object. This is problematic it's because this would brake on push change detection in case that we would be using it in our application. So unpolished change detection is a spatial angular shames detection mode that we are going to cover at the end of this course that allows our application to get the view updated in a more performance way assuming that the data does not get mutated and that we push each time new versions of the data to the view.So if we mutate directly the data inside the store we would break that guarantee and our application
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 

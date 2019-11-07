@@ -57,7 +57,15 @@ const routes: Routes = [
     AuthModule.forRoot(), // AuthModule is a EAGER Loading module
     StoreModule.forRoot(
       reducers,
-      { metaReducers }
+      {
+        metaReducers,
+        runtimeChecks : {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+          strictActionSerializability: true,
+          strictStateSerializability: true
+        }
+      }
     ),
     StoreDevtoolsModule.instrument(
       { maxAge: 25,
