@@ -1,3 +1,4 @@
+import { AuthEffects } from './auth.effect';
 import { AuthGuard } from './auth.guard';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -24,7 +25,7 @@ import { authReducer } from './reducers/index';
           'auth',
           authReducer
         ),
-        EffectsModule.forFeature([])
+        EffectsModule.forFeature([AuthEffects])
     ],
     declarations: [LoginComponent],
     exports: [LoginComponent]

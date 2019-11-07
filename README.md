@@ -61,8 +61,11 @@ The authentication state corresponds to the authentication feature module. So th
 So at this point in the course we have introduced some of the key concepts of our NgRX. We know how to interact with the store by creating and dispatching actions. We know how to change the state contained inside the store by implementing reduce service. And we know how to query the data in the store using selectors.
 
 ### Effects
+A side effect is something that is done in response to a given action. So the action gets dispatched. It reducer gets triggered. And then after that we want to do something else describe in the effect.
+
 - Example we would like to be able to fetch these list of courses from a back in and store them in the store. And whenever we edit one of the courses using here the edit button and lets say we change the title of the course we would like to press save and have those changes immediately reflected in the UI meaning that the store should be immediately updated with the new information without blocking the user. However in the background as a side effect of the modification that we just did in the store of data such as changing the title of the course we would like the store to also save those changes to the backend. Well that extra backend request that these synchronizing the data that we have in the store with a database is a good example of a side effect.
 - We would like our authentication state to survive browser refresh. Actually authentication state is going to be deleted. Implement this feature wsing the Local Storage.
+
 
 ## Ngrx (with NgRx Data) - The Complete Guide
 
