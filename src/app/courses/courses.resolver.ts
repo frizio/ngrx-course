@@ -15,6 +15,7 @@ export class CoursesResolver implements Resolve<any> {
     private store: Store<AppState>
   ) { }
 
+  // This runs before the router complete its transition.
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): Observable<any> {
     return this.store
@@ -23,7 +24,7 @@ export class CoursesResolver implements Resolve<any> {
           () => {
             if (!this.loading) {
               this.loading = true;
-              this.store.dispatch(loadAllCourses());
+              this.store.dispatch(loadAllCourses());  //
             }
           }
         ),

@@ -83,6 +83,8 @@ Action of the functionality: So to summarize our courses resolver it is going to
 
 So let's now start implementing our functionality in a logical way. We are going into our courses resolver that is going to trigger the loading of actions from the back end. We are then going to implement our effect that performance the fetch from the back end. We're going to dispatch this action implement its reducer logic. And finally we are going to write a series of new selectors and we're going to grab our data in our home component from the store instead of calling here the http service.
 
+### (Router Resolver)
+A router resolver is a special service that runs before the router completes its transition. If the target component needs some data from the back end, the resolved is the best place to fetch that data because the router will ensure that the target screen does not get displayed if the data has not been fetched yet. So this means that our target screen is only going to be displayed to the user if the data that it needs is already available. If there's something wrong while fetching the data from the back and the router navigation is going to be cancelled. So this is a great way of ensuring that we never should use it empty screens that contain no data.
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).

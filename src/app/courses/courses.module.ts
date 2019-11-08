@@ -36,6 +36,7 @@ export const coursesRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    // Resolver reference
     resolve: {
       courses: CoursesResolver
     }
@@ -66,8 +67,8 @@ export const coursesRoutes: Routes = [
     MatMomentDateModule,
     ReactiveFormsModule,
     RouterModule.forChild(coursesRoutes),
-    EffectsModule.forFeature([CoursesEffect]),
-    StoreModule.forFeature('courses', coursesReducer)
+    EffectsModule.forFeature([CoursesEffect]),          // Effect
+    StoreModule.forFeature('courses', coursesReducer)   // Reducer
   ],
   declarations: [
     HomeComponent,

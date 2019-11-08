@@ -11,7 +11,7 @@ export class CoursesEffect {
   loadCourses$ = createEffect(
     () => this.actions$
       .pipe(
-        ofType(CourseActions.loadAllCourses),
+        ofType(CourseActions.loadAllCourses),  // Action reference
         concatMap(
           action => this.courseHttpService.findAllCourses()
         ),
