@@ -74,6 +74,8 @@ export class EditCourseDialogComponent {
 
     this.store.dispatch(courseUpdated({update}));
 
+    this.onClose();
+
   }
 
 
