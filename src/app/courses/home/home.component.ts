@@ -19,9 +19,7 @@ import { Store, select } from '@ngrx/store';
 })
 export class HomeComponent implements OnInit {
 
-    // We nedd a selector for each of this 4 properties
-    loading$: Observable<boolean>;
-
+    // We nedd a selector for each of this 3 properties
     beginnerCourses$: Observable<Course[]>;
     advancedCourses$: Observable<Course[]>;
     promoTotal$: Observable<number>;
