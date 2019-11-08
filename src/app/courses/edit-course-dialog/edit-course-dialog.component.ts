@@ -1,3 +1,7 @@
+import { Update } from '@ngrx/entity';
+import { courseUpdated } from './../course.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from './../../reducers/index';
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Course} from '../model/course';
@@ -20,13 +24,14 @@ export class EditCourseDialogComponent {
 
   mode: 'create' | 'update';
 
-  loading$:Observable<boolean>;
+  loading$: Observable<boolean>;
 
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<EditCourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data,
-    private coursesService: CoursesHttpService) {
+    private store: Store<AppState>
+    ) {
 
     this.dialogTitle = data.dialogTitle;
     this.course = data.course;
@@ -39,11 +44,10 @@ export class EditCourseDialogComponent {
       promo: ['', []]
     };
 
-    if (this.mode == 'update') {
+    if (this.mode === 'update') {
       this.form = this.fb.group(formControls);
       this.form.patchValue({...data.course});
-    }
-    else if (this.mode == 'create') {
+    } else if (this.mode === 'create') {
       this.form = this.fb.group({
         ...formControls,
         url: ['', Validators.required],
@@ -63,11 +67,12 @@ export class EditCourseDialogComponent {
       ...this.form.value
     };
 
-    this.coursesService.saveCourse(course.id, course)
-      .subscribe(
-        () => this.dialogRef.close()
-      )
+    const update: Update<Course> = {
+      id: course.id,
+      changes: course
+    };
 
+    this.store.dispatch(courseUpdated({update}));
 
   }
 
