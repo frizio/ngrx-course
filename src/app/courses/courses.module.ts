@@ -1,3 +1,4 @@
+import { CoursesResolver } from './services/courses.resolver';
 import { CourseEntityService } from './services/courses-entity.service';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -31,7 +32,10 @@ import {compareLessons, Lesson} from './model/lesson';
 export const coursesRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {
+      courses: CoursesResolver
+    }
 
   },
   {
@@ -80,7 +84,8 @@ const entityMetadata: EntityMetadataMap = {
   entryComponents: [EditCourseDialogComponent],
   providers: [
     CoursesHttpService,
-    CourseEntityService
+    CourseEntityService,
+    CoursesResolver
   ]
 })
 export class CoursesModule {
