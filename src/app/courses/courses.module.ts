@@ -1,3 +1,4 @@
+import { LessonEntityService } from './services/lesson-entity.service';
 import { CoursesDataService } from './services/courses-data.services';
 import { CoursesResolver } from './services/courses.resolver';
 import { CourseEntityService } from './services/courses-entity.service';
@@ -57,6 +58,9 @@ const entityMetadata: EntityMetadataMap = {
       optimisticAdd: false,      // default
       optimisticDelete: true
     }
+   },
+   Lesson: {
+     sortComparer: compareLessons
    }
 };
 
@@ -96,6 +100,7 @@ const entityMetadata: EntityMetadataMap = {
   providers: [
     CoursesHttpService,
     CourseEntityService,
+    LessonEntityService
     CoursesResolver,
     CoursesDataService
   ]
