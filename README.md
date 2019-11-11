@@ -76,6 +76,24 @@ In redudcer, instead of creating new object and return it, it's possibile (but s
 ### Metareducer
 A Metareducer is a reducer of function. Just like any other it follows the same concepts such as it takes the current state and action and produces a new version of a state. But the difference is that a meta reducer is going to be processed before the normal reduced certs are invoked. So that's the main difference.
 
+## Entity Data and library
+
+### NgRx Feature Design - Defining Actions First
+Action of the functionality: So to summarize our courses resolver it is going to emit this action which is going to trigger this effect called the back end and dispatch this new action that will save the courses data in the store.
+
+So let's now start implementing our functionality in a logical way. We are going into our courses resolver that is going to trigger the loading of actions from the back end. We are then going to implement our effect that performance the fetch from the back end. We're going to dispatch this action implement its reducer logic. And finally we are going to write a series of new selectors and we're going to grab our data in our home component from the store instead of calling here the http service.
+
+### (Router Resolver)
+A router resolver is a special service that runs before the router completes its transition. If the target component needs some data from the back end, the resolved is the best place to fetch that data because the router will ensure that the target screen does not get displayed if the data has not been fetched yet. So this means that our target screen is only going to be displayed to the user if the data that it needs is already available. If there's something wrong while fetching the data from the back and the router navigation is going to be cancelled. So this is a great way of ensuring that we never should use it empty screens that contain no data.
+
+### 
+Initial our target screen is not going to be fetching the data from the router. Instead finally our target screen is going to get the data from the store.
+In the last couple of lessons we have loaded our courses list from the back end and we have saved it in the store using the entity format. Now let's go ahead and refactor our home component that you see here on the screen in order to consume the list of course is from the store instead of from the back end.
+We use selector for this purpose
+
+## Ngrx Data
+Ngrx Data is a package that is part of the Ngrx ecosystem that helps us to handle entity type data. Entity type data is for example the notion here of course is our lessons in our simple application. An entity typically corresponds to a business notion that is part of the business domain of our application. An entity is also typically a persistent object that gets written and read from the database like for example the courses and lessons objects in our application as we have seen in our previous section.  It's typically possible to use the Ngrx entity package to manually manage our entities and we have done so here to the course entity we have shown how to use energetics entity to load entity data into our in-memory store and we have also learned how to use energetics entity to perform optimistic modifications to our entity data that get immediately reflected in the way with a background save using an effect.
+
 ## Ngrx (with NgRx Data) - The Complete Guide
 
 This repository contains the code of the video course [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course).
