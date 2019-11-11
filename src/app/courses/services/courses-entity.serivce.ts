@@ -1,4 +1,4 @@
-import { Course } from './../model/course';
+import { Course } from '../model/course';
 import { Injectable } from '@angular/core';
 import { EntityCollectionServiceElementsFactory, EntityCollectionServiceBase } from '@ngrx/data';
 
