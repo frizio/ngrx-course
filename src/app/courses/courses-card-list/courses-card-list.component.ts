@@ -1,3 +1,4 @@
+import { log } from 'util';
 import { CourseEntityService } from './../services/courses-entity.service';
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Course} from '../model/course';
@@ -46,7 +47,11 @@ export class CoursesCardListComponent implements OnInit {
 
   onDeleteCourse(course: Course) {
 
-    this.coursesService.delete(course);
+    this.coursesService.delete(course)
+    .subscribe(
+      res => alert('Delete completed'),
+      err => alert(err.message)
+    );
 
   }
 
