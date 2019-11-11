@@ -11,7 +11,7 @@ import { EntityCollectionServiceElementsFactory, EntityCollectionServiceBase } f
 // - queryying the data in the store used builin observable
 // - in generate manage allo the entity state
 @Injectable()
-export class CourseEntityService implements EntityCollectionServiceBase<Course> {
+export class CourseEntityService extends EntityCollectionServiceBase<Course> {
 
   constructor(
     // Service that create some of the core elements to enable to build a course entity service
