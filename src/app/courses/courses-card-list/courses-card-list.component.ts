@@ -47,11 +47,7 @@ export class CoursesCardListComponent implements OnInit {
 
   onDeleteCourse(course: Course) {
 
-    this.coursesService.delete(course)
-    .subscribe(
-      res => alert('Delete completed'),
-      err => alert(err.message)
-    );
+    this.coursesService.delete(course);
 
   }
 

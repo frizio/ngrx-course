@@ -70,14 +70,9 @@ export class EditCourseDialogComponent {
         .subscribe(
           newCourse => {
             console.log(newCourse);
-            alert(newCourse);
             this.dialogRef.close();
-          },
-          err => {
-            alert(err.message);
-            console.log(err);
           }
-         );
+        );
     }
 
 
