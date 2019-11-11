@@ -1,3 +1,4 @@
+import { CoursesDataService } from './services/courses-data.services';
 import { CoursesResolver } from './services/courses.resolver';
 import { CourseEntityService } from './services/courses-entity.service';
 import {NgModule} from '@angular/core';
@@ -88,16 +89,20 @@ const entityMetadata: EntityMetadataMap = {
   providers: [
     CoursesHttpService,
     CourseEntityService,
-    CoursesResolver
+    CoursesResolver,
+    CoursesDataService
   ]
 })
 export class CoursesModule {
 
   constructor(
-    private eds: EntityDefinitionService
+    private eds: EntityDefinitionService,
+    private entityDataService: EntityDataService,
+    private coursesDataService: CoursesDataService
     ) {
       // Course is a lazy loaded module, then register them
     eds.registerMetadataMap(entityMetadata);
+    entityDataService.registerService('Course', coursesDataService);
   }
 
 
