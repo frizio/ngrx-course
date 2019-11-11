@@ -14,7 +14,7 @@ export class CoursesResolver implements Resolve<boolean> {
   resolve( route: ActivatedRouteSnapshot,
            state: RouterStateSnapshot ): Observable<boolean> {
     // The transiction will not complete until the returned Observable is completed
-    
+
     return this.coursesService.loaded$
       .pipe(
         tap(
