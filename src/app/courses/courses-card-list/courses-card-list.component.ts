@@ -1,3 +1,4 @@
+import { CourseEntityService } from './../services/courses-entity.service';
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Course} from '../model/course';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -18,7 +19,9 @@ export class CoursesCardListComponent implements OnInit {
     courseChanged = new EventEmitter();
 
     constructor(
-      private dialog: MatDialog ) {
+      private dialog: MatDialog,
+      private coursesService: CourseEntityService
+    ) {
     }
 
     ngOnInit() {
@@ -43,6 +46,7 @@ export class CoursesCardListComponent implements OnInit {
 
   onDeleteCourse(course: Course) {
 
+    this.coursesService.delete(course);
 
   }
 
