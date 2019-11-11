@@ -39,6 +39,10 @@ export const coursesRoutes: Routes = [
   }
 ];
 
+// Configuration for the Course entity
+const entityMetadata: EntityMetadataMap = {
+  Course: { }
+};
 
 @NgModule({
   imports: [
@@ -79,8 +83,11 @@ export const coursesRoutes: Routes = [
 })
 export class CoursesModule {
 
-  constructor() {
-
+  constructor(
+    private eds: EntityDefinitionService
+    ) {
+      // Course is a lazy loaded module, then register them
+    eds.registerMetadataMap(entityMetadata);
   }
 
 
