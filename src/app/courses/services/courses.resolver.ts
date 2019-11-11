@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, tap, filter, first } from 'rxjs/operators';
 import { CourseEntityService } from './courses-entity.service';
 import { Observable } from 'rxjs';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -13,11 +13,20 @@ export class CoursesResolver implements Resolve<boolean> {
 
   resolve( route: ActivatedRouteSnapshot,
            state: RouterStateSnapshot ): Observable<boolean> {
-
-           // Fetch the data with http request
-    return this.coursesService.getAll()
+    // The transiction will not complete until the returned Observable is completed
+    
+    return this.coursesService.loaded$
       .pipe(
-        map(courses => !!courses)
+        tap(
+          loaded => {
+            if (!loaded) {
+              // Fetch the data with http request and save them in the data store
+              this.coursesService.getAll();
+            }
+          }
+        ),
+        filter(loaded => !!loaded), // waiting for the data loaded in the store
+        first()  // completing the observable and ensuring that the transictgion goes true
       );
   }
 
