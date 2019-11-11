@@ -1,3 +1,4 @@
+import { CourseEntityService } from './services/courses-entity.serivce';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home/home.component';
@@ -78,7 +79,8 @@ const entityMetadata: EntityMetadataMap = {
   ],
   entryComponents: [EditCourseDialogComponent],
   providers: [
-    CoursesHttpService
+    CoursesHttpService,
+    CourseEntityService
   ]
 })
 export class CoursesModule {
