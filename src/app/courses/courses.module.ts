@@ -100,7 +100,7 @@ const entityMetadata: EntityMetadataMap = {
   providers: [
     CoursesHttpService,
     CourseEntityService,
-    LessonEntityService
+    LessonEntityService,
     CoursesResolver,
     CoursesDataService
   ]
