@@ -1,4 +1,4 @@
-import { CourseEntityService } from './services/courses-entity.serivce';
+import { CourseEntityService } from './services/courses-entity.service';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home/home.component';
