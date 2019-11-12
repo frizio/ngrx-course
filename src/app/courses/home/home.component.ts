@@ -6,13 +6,15 @@ import {defaultDialogConfig} from '../shared/default-dialog-config';
 import {EditCourseDialogComponent} from '../edit-course-dialog/edit-course-dialog.component';
 import {MatDialog} from '@angular/material';
 import {map, shareReplay} from 'rxjs/operators';
+import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 
 
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    styleUrls: ['./home.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
 
