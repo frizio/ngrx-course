@@ -11,7 +11,6 @@ import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
     selector: 'courses-card-list',
     templateUrl: './courses-card-list.component.html',
     styleUrls: ['./courses-card-list.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesCardListComponent implements OnInit {
 
